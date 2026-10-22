@@ -2,10 +2,61 @@
 //
 
 #include <iostream>
+#include <stdio.h>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	int sucursales, mesas, menu;
+	bool continuar = true;
+
+	printf("Ingrese el numero de sucursales: ");
+	scanf("%d", &sucursales);
+
+	printf("Ingrese el numero de mesas: ");
+	scanf("%d", &mesas);
+
+	int *matriz = (int*)calloc(sucursales, sizeof(int));
+
+	if(matriz == NULL){
+		printf("Error al asignar memoria\n");
+		return 1;
+	}
+
+	do{
+		printf("Seleccione una opción:\n");
+		printf("1. Registrar o actualizar las ventas de una sucursal en un mes determinado.\n");
+		printf("2. Consultar las ventas de una sucursal en un mes determinado.\n");
+		printf("3. Calcular las ventas totales de cada sucursal.\n");
+		printf("4. Identificar la sucursal con mayores ventas acumuladas.\n");
+		printf("5. Mostrar la matriz completa.\n");
+		printf("6. Salir.\n");
+		scanf("%d", &menu);
+
+		switch (menu) {
+			case 1:
+				// Registrar o actualizar las ventas de una sucursal en un mes determinado
+				break;
+			case 2:
+				// Consultar las ventas de una sucursal en un mes determinado
+				break;
+			case 3:
+				// Calcular las ventas totales de cada sucursal
+				break;
+			case 4:
+				// Identificar la sucursal con mayores ventas acumuladas
+				break;
+			case 5:
+				// Mostrar la matriz completa
+				break;
+			case 6:
+				continuar = false;
+				break;
+			default:
+				printf("Opción no válida\n");
+		}
+	} while (!continuar);
+
+	free(matriz);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
