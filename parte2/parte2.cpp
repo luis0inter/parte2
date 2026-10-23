@@ -1,5 +1,6 @@
-// parte2.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+#include <cstdlib>
+#include <stdio.h>
+#include <stdlib.h>
 
 #include <iostream>
 
@@ -8,13 +9,28 @@ int main()
     std::cout << "Hello World!\n";
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+//Inicializar la matriz dinámica
+int sucursales;
+int numMeses;
+
+void* callocMatriz(int sucursales, int numMeses) //Le metemos las sucursales y los meses.
+{
+	//Reservamos memoria para el arreglo de punteros que en mi matriz son las filas
+	int** matriz = new int* [sucursales];
+
+		for (int i = 0; i < sucursales; i++)
+		{
+			//Reservamos memoria para cada una de las columnas de cada fila
+			matriz[i] = new int[numMeses];
+
+			//Inicializamos la matriz con ceros porque así es calloc
+			for (int j = 0; j < numMeses; j++)
+			{
+				//Se guarda 0 en x y y
+				matriz[i][j] = 0;
+			}
+		}
+	return matriz;
+}
+
